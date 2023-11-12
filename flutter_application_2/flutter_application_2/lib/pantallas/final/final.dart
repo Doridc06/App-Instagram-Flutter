@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/pantallas/inicio/inicio.dart';
 
+/// Clase PieDePagina: Representa la barra de navegación inferior de la aplicación.
+/// Contiene iconos para navegar a la página de inicio, buscar, agregar contenido,
+/// ver los favoritos y acceder al perfil del usuario.
 class PieDePagina extends StatelessWidget {
   const PieDePagina({super.key});
 
@@ -13,18 +16,22 @@ class PieDePagina extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
+          // Icono de inicio con navegación a la página de inicio
           GestureDetector(
             onTap: () {
-              // Navegar a la página de inicio
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => Inicio(),
+                builder: (context) => const Inicio(),
               ));
             },
             child: const Icon(Icons.home, size: 30, color: Colors.grey),
           ),
+          // Icono de búsqueda
           const Icon(Icons.search, size: 30, color: Colors.grey),
+          // Icono para agregar contenido
           const Icon(Icons.add_circle_outline, size: 30, color: Colors.grey),
+          // Icono de favoritos
           const Icon(Icons.favorite_border, size: 30, color: Colors.grey),
+          // Círculo de perfil con imagen del usuario
           Container(
             width: 40, // Ajusta el ancho del círculo según tus necesidades
             height: 40, // Ajusta el alto del círculo según tus necesidades

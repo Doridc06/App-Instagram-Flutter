@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Clase CuadriculaDeImagenes: Representa una cuadrícula de imágenes en una columna.
+/// Utiliza un GridView para mostrar las imágenes en una disposición de cuadrícula.
 class CuadriculaDeImagenes extends StatelessWidget {
+  // Constructor de la clase CuadriculaDeImagenes
   // ignore: use_key_in_widget_constructors
   const CuadriculaDeImagenes({Key? key});
 
@@ -31,6 +34,8 @@ class CuadriculaDeImagenes extends StatelessWidget {
     );
   }
 
+  /// Método _buildImagen: Crea un contenedor con una imagen dada.
+  /// Utilizado para construir cada elemento de la cuadrícula de imágenes.
   Widget _buildImagen(String imagePath) {
     return Container(
       width: 100, // Establece el ancho de las imágenes según tus necesidades

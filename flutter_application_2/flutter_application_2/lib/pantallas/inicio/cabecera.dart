@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_application_2/pantallas/final/final.dart';
 import 'package:flutter_application_2/pantallas/inicio/cerrandoApp.dart';
 import 'cabecera2.dart';
 
+/// Clase Cabecera: Representa la pantalla principal del perfil de usuario.
+/// Incluye una barra de navegación superior con acciones y el contenido del perfil.
 class Cabecera extends StatelessWidget {
   const Cabecera({super.key});
 
@@ -14,6 +15,7 @@ class Cabecera extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromARGB(255, 239, 237, 237),
         actions: <Widget>[
+          // Nombre de usuario y acciones
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -27,6 +29,7 @@ class Cabecera extends StatelessWidget {
                   decoration: TextDecoration.underline,
                 ),
               ),
+              // Icono y número de notificaciones
               Container(
                 width: 14,
                 height: 16,
@@ -44,6 +47,7 @@ class Cabecera extends StatelessWidget {
                   ),
                 ),
               ),
+              // Iconos de acciones
               const Row(
                 children: [
                   Padding(
@@ -80,6 +84,7 @@ class Cabecera extends StatelessWidget {
                   ),
                 ],
               ),
+              // Icono y número de mensajes
               Container(
                 width: 14,
                 height: 16,
@@ -97,6 +102,7 @@ class Cabecera extends StatelessWidget {
                   ),
                 ),
               ),
+              // Icono "Más opciones"
               const Padding(
                 padding: EdgeInsets.all(6.0),
                 child: Icon(
@@ -105,9 +111,10 @@ class Cabecera extends StatelessWidget {
                   size: 28,
                 ),
               ),
+              // Icono para cerrar la aplicación con un diálogo de confirmación
               GestureDetector(
                 onTap: () {
-                  // Lógica para mostrar el diálogo
+                  // Lógica para mostrar el diálogo de confirmación
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -118,10 +125,11 @@ class Cabecera extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                         ),
                         actions: [
+                          // Botón "Aceptar" cierra la aplicación
                           TextButton(
                             onPressed: () {
-                              // Cierra el diálogo y abre una pantalla de "Cerrando"
-                              Navigator.pop(context);
+                              Navigator.pop(context); // Cierra el diálogo
+                              // Abre una pantalla de "Cerrando" antes de cerrar la aplicación
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -132,10 +140,11 @@ class Cabecera extends StatelessWidget {
                             },
                             child: const Text('Aceptar'),
                           ),
+                          // Botón "Cancelar" cierra el diálogo
                           TextButton(
                             onPressed: () {
-                              // Cancelar el cierre de la aplicación
-                              Navigator.of(context).pop();
+                              Navigator.of(context)
+                                  .pop(); // Cancela el cierre de la aplicación
                             },
                             child: const Text('Cancelar'),
                           ),
@@ -147,7 +156,7 @@ class Cabecera extends StatelessWidget {
                 child: const Icon(
                   Icons.exit_to_app,
                   color: Colors.black,
-                  size: 36,
+                  size: 30,
                 ),
               ),
             ],
@@ -156,9 +165,11 @@ class Cabecera extends StatelessWidget {
       ),
       body: const Column(
         children: [
+          // Contenido del perfil
           Expanded(
             child: Cabecera2(),
           ),
+          // Pie de página
           PieDePagina(),
           // Agregar aquí el widget PieDePagina si es necesario
         ],

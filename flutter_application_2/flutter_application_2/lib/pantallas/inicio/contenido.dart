@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'botonLlamar.dart';
 
+/// Clase Contenido: Representa el contenido principal de la aplicación.
+/// Incluye una lista horizontal de imágenes con texto y un botón para llamar.
 class Contenido extends StatelessWidget {
   Contenido({super.key});
+
+  // Lista de rutas de imágenes
   final List<String> imagePaths = [
     'assets/images/paseo.png',
     'assets/images/neroRoca.png',
@@ -11,6 +15,7 @@ class Contenido extends StatelessWidget {
     'assets/images/neroArropado.png',
   ];
 
+  // Lista de textos asociados a las imágenes
   final List<String> imageTexts = [
     'Paseo',
     'Roca',
@@ -24,25 +29,31 @@ class Contenido extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        // Lista horizontal de imágenes con texto
         Container(
           height: 100, // Ajusta la altura según tus necesidades
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: <Widget>[
-              _buildAddImageButton(),
+              _buildAddImageButton(), // Botón para agregar una imagen
               const SizedBox(width: 16),
               for (int i = 0; i < imagePaths.length; i++)
-                _buildImageWithText(imagePaths[i], imageTexts[i],
-                    const Color.fromARGB(255, 139, 133, 133)),
+                _buildImageWithText(
+                  imagePaths[i],
+                  imageTexts[i],
+                  const Color.fromARGB(255, 139, 133, 133),
+                ),
             ],
           ),
         ),
         // Espacio entre las imágenes y el botón de llamar
-        const BotonLlamar(), // Utiliza la clase LlamarButton
+        const SizedBox(height: 8),
+        const BotonLlamar(), // Utiliza la clase BotonLlamar
       ],
     );
   }
 
+  // Método para construir el botón de agregar imagen
   Widget _buildAddImageButton() {
     return Column(
       children: <Widget>[
@@ -84,6 +95,7 @@ class Contenido extends StatelessWidget {
     );
   }
 
+  // Método para construir una imagen con texto asociado
   Widget _buildImageWithText(String imagePath, String text, Color color) {
     return Column(
       children: <Widget>[

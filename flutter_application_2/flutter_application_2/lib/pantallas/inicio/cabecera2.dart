@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'descripcion.dart';
 import 'contenido.dart';
 
+/// Clase Cabecera2: Representa la cabecera de la pantalla de perfil.
+/// Muestra la imagen del perfil, estadísticas y botones para "Promociones" y "Editar Perfil".
+/// También incluye una descripción y contenido adicional.
 class Cabecera2 extends StatelessWidget {
   const Cabecera2({super.key});
 
@@ -10,9 +13,11 @@ class Cabecera2 extends StatelessWidget {
     return ListView(
       children: <Widget>[
         const SizedBox(height: 16),
+        // Sección de imagen del perfil y estadísticas
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            // Imagen del perfil
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Stack(
@@ -39,13 +44,16 @@ class Cabecera2 extends StatelessWidget {
                 ],
               ),
             ),
+            // Estadísticas del perfil
             const SizedBox(width: 3),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                // Número de publicaciones, seguidores y seguidos
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
+                    // Número de publicaciones
                     Column(
                       children: <Widget>[
                         Center(
@@ -65,6 +73,7 @@ class Cabecera2 extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // Número de seguidores
                     SizedBox(width: 6),
                     Column(
                       children: <Widget>[
@@ -85,6 +94,7 @@ class Cabecera2 extends StatelessWidget {
                         ),
                       ],
                     ),
+                    // Número de seguidos
                     SizedBox(width: 6),
                     Column(
                       children: <Widget>[
@@ -107,12 +117,12 @@ class Cabecera2 extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 4,
-                ),
+                const SizedBox(height: 4),
+                // Botones de "Promociones" y "Editar Perfil"
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
+                    // Botón "Promociones"
                     ElevatedButton(
                       onPressed: () {
                         // Lógica para ir a la pantalla de "Promociones"
@@ -130,6 +140,7 @@ class Cabecera2 extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 4),
+                    // Botón "Editar Perfil"
                     ElevatedButton(
                       onPressed: () {
                         // Lógica para editar el perfil
@@ -148,15 +159,15 @@ class Cabecera2 extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 2,
-                ),
+                const SizedBox(height: 2),
               ],
             ),
           ],
         ),
+        // Descripción del perfil
         const Descripcion(),
         const SizedBox(height: 4),
+        // Contenido adicional del perfil
         Contenido(),
       ],
     );
